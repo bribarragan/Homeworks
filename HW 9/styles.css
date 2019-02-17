@@ -1,0 +1,85 @@
+/* giving the body a dark background to better see the bright colored boxes */
+body {
+    background:#D3D3D3;
+  }
+  
+  
+  /* Every individual box is a different color */
+  .box-1 {
+    background: whitesmoke;
+    margin: 10px;
+  }
+
+  .white {
+    color:white
+  }
+
+  .green {
+    padding: 10px;
+    background-color:#3abda0;
+    color: white;
+    size: 15pt; 
+  }
+  
+  h1 {
+      color: #3abda0;
+      size: 25pt;
+      font-weight: bold;
+
+  }
+    
+  h3 {
+    color: #3abda0;
+    size: 18pt;
+    font-weight: bold;
+
+}
+  .row {
+    display: flex;
+  }
+.col-md-3{
+    flex: 33.33%;
+    padding: 5px;
+  }
+  .center-fit {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+@media (max-width: 500px) {
+    .navbar li {
+      padding: 10px;
+    }
+    .box {
+      margin-right: 22px;
+      margin-left: 22px;
+    }
+    .navbar ul {
+      visibility: hidden;
+    }
+    #nav-select {
+      visibility: visible;
+    }
+  }
+  
+  .col-1 {width: 8%;}
+  .col-2 {width: 17%;}
+  .col-3 {width: 24%;}
+  .col-4 {width: 32%;}
+  .col-5 {width: 40%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 60%;}
+  .col-8 {width: 65%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 82%;}
+  .col-11 {width: 92%;}
+  .col-12 {width: 100%;}
+  
+  @media only screen and (max-width: 768px) {
+
+      [class*="col-"] {
+          width: 100%;
+      }
+  }
+
+
