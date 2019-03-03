@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-12">
                         <h2>Featured Mars Image</h2>
-                        <img class="img-fluid" src="{{ mars.feature_pic }}">
+                        <img class="img-fluid" src="{{ mars.feature_pic }}" class="img-responsive" style="float:left;width:50%;">
                     </div>
                 </div>
             </div>
@@ -59,6 +59,16 @@
             <div class="col-md-12 text-center">
                 <h2>Mars Hemispheres</h2><hr>
             </div>
+            <div class="col-md-12">
+             <ul>
+                 <li> <img src={{mars.hemis_pics[0].img_url}} class="img-responsive" style="float:left;width:50%;"></li>
+                 <li> <img src={{mars.hemis_pics[1].img_url}} class="img-responsive" style="float:left;width:50%;"></li>
+                 <li> <img src={{mars.hemis_pics[2].img_url}} class="img-responsive" style="float:left;width:50%;"></li>
+                 <li> <img src={{mars.hemis_pics[3].img_url}} class="img-responsive" style="float:left;width:50%;"></li>
+             </ul>
+        
+        </div>
+        <row></row>
 
     </section>
 

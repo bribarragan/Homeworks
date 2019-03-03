@@ -152,7 +152,7 @@ def scrape():
     # In[22]:
 
 
-    table = facts_df.to_html
+    table = facts_df.to_html()
 
 
     # In[23]:
