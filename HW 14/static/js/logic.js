@@ -34,7 +34,7 @@ for(i=0; i< point.length; i++){
   // Set the data location property to a variable
   var location = point[i].geometry.coordinates;
 
-  // Add a new marker to the cluster group and bind a pop-up
+  // Add a new cirle and bind a pop-up
   L.circle([location[1],location[0]], {
     stroke: false,
     fillOpacity: 0.75,
@@ -45,6 +45,8 @@ for(i=0; i< point.length; i++){
     .bindPopup(`Location: ${point[i].properties.place}<hr> Magnitude: ${point[i].properties.mag}`);
 
 }
+
+// add legend
 var legend = L.control({ position: 'bottomright' })
 legend.onAdd = function (map) {
 
@@ -64,39 +66,3 @@ return div;
 
 legend.addTo(myMap);
 })
-
-
-
-
-
-// var div = L.DomUtil.create('div', 'info legend'),
-// grades = [0, 1, 2, 3, 4, 5, 10],
-// labels = [];
-
-// // loop through our density intervals and generate a label with a colored square for each interval
-// for (var i = 0; i < grades.length; i++) {
-// div.innerHTML +=
-//     '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-//     grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-// }
-// return div;
-
-// get colors 
-  // if (point[i].properties.mag < 1){
-  //   color = "green"
-  // }
-  // else if (point[i].properties.mag < 2){
-  //   color = "#9ACD32"
-  // }
-  // else if (point[i].properties.mag < 3){
-  //   color = "yellow"
-  // }
-  // else if (point[i].properties.mag < 4){
-  //   color = "orange"
-  // }
-  
-  // else if (point[i].properties.mag <5){
-  //   color ="#FF4500"
-  // }
-  // else {color = "red"}
-  // Check for location property
