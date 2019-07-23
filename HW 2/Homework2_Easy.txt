@@ -1,0 +1,33 @@
+Sub stockCounter()
+
+         Dim WS_Count As Integer
+         Dim B As Integer
+        WS_Count = ActiveWorkbook.Worksheets.Count
+    For B = 1 To WS_Count
+        Worksheets(B).Activate
+        Range("J1").Value = "Ticker"
+        Range("K1").Value = "Total Stock Volume"
+
+Dim StockName As String
+Dim SumRow As Integer
+SumRow = 2
+Dim Total As Double
+    Total = 0
+Dim Lastrow As Long
+    Lastrow = Cells(Rows.Count, 1).End(xlUp).Row
+    
+For i = 2 To Lastrow
+
+    If Cells(i + 1, 1) <> Cells(i, 1) Then
+    Total = Total + Cells(i, 7)
+    Range("J" & SumRow).Value = Cells(i, 1)
+    Range("K" & SumRow).Value = Total
+    SumRow = SumRow + 1
+    Total = 0
+    
+    Else: Total = Total + Cells(i, 7)
+    End If
+    Next i
+    Next B
+    End Sub
+

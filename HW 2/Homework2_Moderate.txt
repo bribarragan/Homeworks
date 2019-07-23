@@ -1,0 +1,55 @@
+Sub stockCounter()
+'Select and loop through Worksheets
+         Dim WS_Count As Integer
+         Dim B As Integer
+        WS_Count = ActiveWorkbook.Worksheets.Count
+    For B = 1 To WS_Count
+        Worksheets(B).Activate
+        Range("J1").Value = "Ticker"
+        Range("K1").Value = "Yearly Change"
+        Range("L1").Value = "Percent Change"
+        Range("M1").Value = "Total Stock Volume"
+Dim StockName As String
+Dim SumRow As Integer
+SumRow = 2
+Dim Total As Double
+    Total = 0
+Dim Slastrow As Long
+    Slastrow = Cells(Rows.Count, 1).End(xlUp).Row
+Dim Tlastrow As Long
+    Tlastrow = Cells(Rows.Count, 11).End(xlUp).Row
+
+Dim Yearly_Change As Long
+Yearly_Change = 0
+
+'Fill summary sheet
+For i = 2 To Slastrow
+    
+    If Cells(i + 1, 1) <> Cells(i, 1) Then
+    Total = Total + Cells(i, 7)
+    Range("J" & SumRow).Value = Cells(i, 1)
+    Range("M" & SumRow).Value = Total
+    Range("K" & SumRow).Value = Cells(i, 6).Value - Cells((i - Yearly_Change), 3).Value
+        If Cells(i, 6).Value - Cells((i - Yearly_Change), 3).Value = 0 Or Cells((i - Yearly_Change), 3).Value = 0 Then
+        Range("L" & SumRow).Value = 0
+        Else: Range("L" & SumRow).Value = (Cells(i, 6).Value / Cells((i - Yearly_Change), 3).Value) - 1
+        End If
+    SumRow = SumRow + 1
+    Yearly_Change = 0
+    Total = 0
+    
+        Else: Total = Total + Cells(i, 7)
+            Yearly_Change = Yearly_Change + 1
+        End If
+        Next i
+'Formatting
+For D = 2 To Tlastrow
+    If Cells(D, 11).Value > 0 Then
+    Cells(D, 11).Interior.ColorIndex = 4
+    Cells(D, 12).NumberFormat = "0.00%"
+    Else: Cells(D, 11).Interior.ColorIndex = 3
+    Cells(D, 12).NumberFormat = "0.00%"
+    End If
+    Next D
+Next B
+    End Sub
